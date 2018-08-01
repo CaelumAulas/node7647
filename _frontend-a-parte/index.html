@@ -1,0 +1,41 @@
+<ul></ul>
+<script>    
+fetch('http://localhost:3000/produtos', {
+    headers: {
+        'Accept': 'application/json'
+    }
+})
+	.then((res) => res.json())
+	.then(objetoJs => {
+        const ul = document.querySelector('ul')
+        objetoJs.forEach((objetoAtual) => {
+            const li = `
+                <li>${objetoAtual.titulo} ${objetoAtual.preco}</li>
+            `
+            ul.innerHTML += li
+        })
+    });
+
+
+const novoLivro = {
+    titulo: "Livro Node fodelastico",
+    preco: 40.0,
+    descricao: "Construa saites"
+}
+
+
+// fetch('http://localhost:3000/produtos', {
+//     headers: {
+//         'Accept': 'application/json',
+//         'Content-type': 'application/json'
+//     },
+//     method: 'POST',
+//     body: JSON.stringify({titulo: "Livro", preco: 40, descricao: "x"})
+// })
+// .then((res) => res.json())
+// .then(objetoJs => {
+//     console.log(objetoJs)
+// })
+
+
+</script>
